@@ -16,8 +16,6 @@ This repository hosts the **first public version (v1)** of the taxonomy.
 R-SIT defines a set of **interpretable, perceptually grounded dimensions** that describe a social situation from the perspective of a robot-mounted camera.
 It focuses exclusively on features that can be **visually inferred** through pose, proximity, gaze, facial expression, group structure, and contextual cues.
 
-R-SIT v1 serves as the **foundational layer** from which future expansions (v2, v3…) will introduce more complex constructs such as interaction goals, multimodal behaviors, role inference, and long-term social dynamics.
-
 ---
 
 ## 🧠 **Why create a new taxonomy?**
