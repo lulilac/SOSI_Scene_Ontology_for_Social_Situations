@@ -1,0 +1,55 @@
+{
+  "Social_Situation_Taxonomy": {
+    "1_Contextual_Frame": {
+      "physical_environment": {
+        "description": "Physical and architectural structure of the scene.",
+        "values": ["indoor", "outdoor"]
+      },
+      "social_environment": {
+        "description": "Social accessibility or formality of the setting as visible from cues (dress code, layout, signage, crowd type).",
+        "values": ["formal", "informal", "public", "private"]
+      },
+      "cultural_style": {
+        "description": "Recognizable communicative or normative background.",
+        "values": ["western_individualistic", "collectivistic", "organizational", "family"]
+      }
+    },
+
+    "2_Participants_and_Roles": {
+      "social_roles": {
+        "description": "Social roles inferred from posture, attire, or positioning.",
+        "values": ["peer_peer", "master-slave", "stranger_stranger"]
+      },
+      "social_hierarchy": {
+        "description": "Postural or spatial indicators of dominance or submission.",
+        "values": ["dominant", "equal", "submissive"]
+      }
+    },
+
+    "3_Interactional_Dynamics": {
+      "cardinality": {
+        "description": "Visible number of social participants engaged in the interaction, inferred from body orientation, proximity, and gaze within the camera’s field of view.",
+        "values": ["solo", "dyad_1to1", "triad_1to2", "small_group_N", "crowd_context"]
+      },
+      "interaction_type": {
+        "description": "Goal or orientation of the visible interaction.",
+        "values": ["cooperative", "competitive", "persuasive", "conforming", "observational"]
+      },
+      "communication_mode": {
+        "description": "Mode of social influence or exchange observed.",
+        "values": ["verbal", "nonverbal"]
+      },
+      "interdependence_level": {
+        "description": "Visible arrangement of bodies and orientations.",
+        "values": ["proximity_close", "proximity_far", "eye_contact", "body_orientation"]
+      }
+    },
+
+    "5_Affective_and_Normative_Stance": {
+      "emotional_valence": {
+        "description": "Interaction's tone",
+        "values": ["positive", "neutral", "negative"]
+      }
+    }
+  }
+}
