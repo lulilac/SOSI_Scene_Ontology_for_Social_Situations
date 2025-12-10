@@ -1,0 +1,441 @@
+@prefix :    <http://www.phd-project.org/ontology/rsit#> .
+@prefix rsit: <http://www.phd-project.org/ontology/rsit#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix oro: <http://kb.openrobots.org#> .
+
+#################################################################
+# Ontology header
+#################################################################
+
+<http://www.phd-project.org/ontology/rsit>
+    a owl:Ontology ;
+    rdfs:label "R-SIT: Robotic Social Interaction Taxonomy" .
+
+#################################################################
+# Meta-level grouping classes (high-level categories)
+#################################################################
+
+:RSITEntity a owl:Class ;
+    rdfs:label "RSIT core entity" .
+
+:RSITDimension a owl:Class ;
+    rdfs:label "RSIT dimension" .
+
+:EnvironmentDimension a owl:Class ;
+    rdfs:subClassOf :RSITDimension ;
+    rdfs:label "Environment dimension" .
+
+:SituationDimension a owl:Class ;
+    rdfs:subClassOf :RSITDimension ;
+    rdfs:label "Situation dimension" .
+
+:AgentDimension a owl:Class ;
+    rdfs:subClassOf :RSITDimension ;
+    rdfs:label "Agent dimension" .
+
+:AffectiveDimension a owl:Class ;
+    rdfs:subClassOf :RSITDimension ;
+    rdfs:label "Affective dimension" .
+
+:CommunicativeAspect a owl:Class ;
+    rdfs:label "Communicative aspect" .
+
+#################################################################
+# Core classes (main entities in the domain)
+#################################################################
+
+:SocialSituation a owl:Class ;
+    rdfs:subClassOf :RSITEntity ;
+    rdfs:label "Social Situation" .
+
+:Agent a owl:Class ;
+    rdfs:subClassOf :RSITEntity ;
+    rdfs:label "Agent" .
+
+:Environment a owl:Class ;
+    rdfs:subClassOf :RSITEntity ;
+    rdfs:label "Environment" .
+
+:Location a owl:Class ;
+    rdfs:subClassOf :Environment ;
+    rdfs:label "Location" .
+
+#################################################################
+# Environment dimensions (properties of locations)
+#################################################################
+
+:PhysicalEnvironmentType a owl:Class ;
+    rdfs:subClassOf :EnvironmentDimension ;
+    rdfs:label "Physical Environment Type" .
+
+:Indoor a owl:Class ;
+    rdfs:subClassOf :PhysicalEnvironmentType ;
+    rdfs:label "Indoor" .
+
+:Outdoor a owl:Class ;
+    rdfs:subClassOf :PhysicalEnvironmentType ;
+    rdfs:label "Outdoor" .
+
+:Formality a owl:Class ;
+    rdfs:subClassOf :EnvironmentDimension ;
+    rdfs:label "Formality" .
+
+:Formal a owl:Class ;
+    rdfs:subClassOf :Formality ;
+    rdfs:label "Formal" .
+
+:Informal a owl:Class ;
+    rdfs:subClassOf :Formality ;
+    rdfs:label "Informal" .
+
+#################################################################
+# Social participants & roles (agent-level descriptors)
+#################################################################
+
+:SocialRole a owl:Class ;
+    rdfs:subClassOf :AgentDimension ;
+    rdfs:label "Social Role" .
+
+:PeerPeerRole a owl:Class ;
+    rdfs:subClassOf :SocialRole ;
+    rdfs:label "peer_peer" .
+
+:MasterSlaveRole a owl:Class ;
+    rdfs:subClassOf :SocialRole ;
+    rdfs:label "master-slave" .
+
+:StrangerStrangerRole a owl:Class ;
+    rdfs:subClassOf :SocialRole ;
+    rdfs:label "stranger_stranger" .
+
+:SocialHierarchy a owl:Class ;
+    rdfs:subClassOf :AgentDimension ;
+    rdfs:label "Social Hierarchy" .
+
+:DominantStatus a owl:Class ;
+    rdfs:subClassOf :SocialHierarchy ;
+    rdfs:label "dominant" .
+
+:EqualStatus a owl:Class ;
+    rdfs:subClassOf :SocialHierarchy ;
+    rdfs:label "equal" .
+
+:SubmissiveStatus a owl:Class ;
+    rdfs:subClassOf :SocialHierarchy ;
+    rdfs:label "submissive" .
+
+#################################################################
+# Social relation pattern (situation-level social configuration)
+#################################################################
+
+:SocialRelationType a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Social relation type" .
+
+:PeerRelation a owl:Class ;
+    rdfs:subClassOf :SocialRelationType ;
+    rdfs:label "peer_peer" .
+
+:StrangerRelation a owl:Class ;
+    rdfs:subClassOf :SocialRelationType ;
+    rdfs:label "stranger_stranger" .
+
+:AdultChildRelation a owl:Class ;
+    rdfs:subClassOf :SocialRelationType ;
+    rdfs:label "adult_child" .
+
+#################################################################
+# Interactional dynamics – group size & crowding
+#################################################################
+
+:Cardinality a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Cardinality (group size)" .
+
+:Solo a owl:Class ;
+    rdfs:subClassOf :Cardinality ;
+    rdfs:label "solo" .
+
+:Dyad_1to1 a owl:Class ;
+    rdfs:subClassOf :Cardinality ;
+    rdfs:label "dyad_1to1" .
+
+:Triad_1to2 a owl:Class ;
+    rdfs:subClassOf :Cardinality ;
+    rdfs:label "triad_1to2" .
+
+:SmallGroup_N a owl:Class ;
+    rdfs:subClassOf :Cardinality ;
+    rdfs:label "small_group_n" .
+
+:CrowdContext a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Crowd context" .
+
+:Crowded a owl:Class ;
+    rdfs:subClassOf :CrowdContext ;
+    rdfs:label "crowded" .
+
+:NotCrowded a owl:Class ;
+    rdfs:subClassOf :CrowdContext ;
+    rdfs:label "not_crowded" .
+
+#################################################################
+# Interactional dynamics – interaction types
+#################################################################
+
+:InteractionDimension a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Interaction dimension" .
+
+:InteractionType a owl:Class ;
+    rdfs:subClassOf :InteractionDimension ;
+    rdfs:label "Interaction type" .
+
+:GoalDirectedInteractionType a owl:Class ;
+    rdfs:subClassOf :InteractionType ;
+    rdfs:label "Goal-directed interaction type" .
+
+:NormConformityInteractionType a owl:Class ;
+    rdfs:subClassOf :InteractionType ;
+    rdfs:label "Norm-conformity interaction type" .
+
+:CooperativeInteraction a owl:Class ;
+    rdfs:subClassOf :GoalDirectedInteractionType ;
+    rdfs:label "cooperative" .
+
+:CompetitiveInteraction a owl:Class ;
+    rdfs:subClassOf :GoalDirectedInteractionType ;
+    rdfs:label "competitive" .
+
+:PersuasiveInteraction a owl:Class ;
+    rdfs:subClassOf :GoalDirectedInteractionType ;
+    rdfs:label "persuasive" .
+
+:ConformingInteraction a owl:Class ;
+    rdfs:subClassOf :NormConformityInteractionType ;
+    rdfs:label "conforming" .
+
+:ObservationalInteraction a owl:Class ;
+    rdfs:subClassOf :NormConformityInteractionType ;
+    rdfs:label "observational" .
+
+#################################################################
+# Communication mode (verbal vs nonverbal)
+#################################################################
+
+:CommunicationMode a owl:Class ;
+    rdfs:subClassOf :SituationDimension , :CommunicativeAspect ;
+    rdfs:label "Communication mode" .
+
+:VerbalCommunication a owl:Class ;
+    rdfs:subClassOf :CommunicationMode ;
+    rdfs:label "verbal" .
+
+:NonverbalCommunication a owl:Class ;
+    rdfs:subClassOf :CommunicationMode ;
+    rdfs:label "nonverbal" .
+
+#################################################################
+# Interactional dynamics – interdependence & nonverbal cues
+#################################################################
+
+:InterdependenceLevel a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Interdependence level" .
+
+:HighInterdependence a owl:Class ;
+    rdfs:subClassOf :InterdependenceLevel ;
+    rdfs:label "high_interdependence" .
+
+:LowInterdependence a owl:Class ;
+    rdfs:subClassOf :InterdependenceLevel ;
+    rdfs:label "low_interdependence" .
+
+:NonverbalCue a owl:Class ;
+    rdfs:subClassOf :CommunicativeAspect ;
+    rdfs:label "Nonverbal cue" .
+
+:ProximityClose a owl:Class ;
+    rdfs:subClassOf :NonverbalCue ;
+    rdfs:label "proximity_close" .
+
+:ProximityFar a owl:Class ;
+    rdfs:subClassOf :NonverbalCue ;
+    rdfs:label "proximity_far" .
+
+:EyeContact a owl:Class ;
+    rdfs:subClassOf :NonverbalCue ;
+    rdfs:label "eye_contact" .
+
+:BodyOrientation a owl:Class ;
+    rdfs:subClassOf :NonverbalCue ;
+    rdfs:label "body_orientation" .
+
+#################################################################
+# Affective stance (emotional tone)
+#################################################################
+
+:EmotionalValence a owl:Class ;
+    rdfs:subClassOf :AffectiveDimension ;
+    rdfs:label "Emotional Valence" .
+
+:PositiveValence a owl:Class ;
+    rdfs:subClassOf :EmotionalValence ;
+    rdfs:label "positive" .
+
+:NeutralValence a owl:Class ;
+    rdfs:subClassOf :EmotionalValence ;
+    rdfs:label "neutral" .
+
+:NegativeValence a owl:Class ;
+    rdfs:subClassOf :EmotionalValence ;
+    rdfs:label "negative" .
+
+#################################################################
+# Engagement level (using ORO individuals as values)
+#################################################################
+
+:EngagementLevel a owl:Class ;
+    rdfs:subClassOf :SituationDimension ;
+    rdfs:label "Engagement level" .
+
+oro:engaged a :EngagementLevel .
+oro:engaging a :EngagementLevel .
+oro:disengaging a :EngagementLevel .
+
+#################################################################
+# Object properties (links between situations, agents and dimensions)
+#################################################################
+
+:hasLocation a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :Location ;
+    rdfs:label "has location" .
+
+:hasPhysicalType a owl:ObjectProperty ;
+    rdfs:domain :Location ;
+    rdfs:range  :PhysicalEnvironmentType ;
+    rdfs:label "has physical type (indoor/outdoor)" .
+
+:hasFormality a owl:ObjectProperty ;
+    rdfs:domain :Location ;
+    rdfs:range  :Formality ;
+    rdfs:label "has formality" .
+
+:hasCardinality a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :Cardinality ;
+    rdfs:label "has cardinality" .
+
+:hasCrowdContext a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :CrowdContext ;
+    rdfs:label "has crowd context" .
+
+:hasInteractionType a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :InteractionType ;
+    rdfs:label "has interaction type" .
+
+:hasCommunicationMode a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :CommunicationMode ;
+    rdfs:label "has communication mode" .
+
+:hasInterdependenceLevel a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :InterdependenceLevel ;
+    rdfs:label "has interdependence level" .
+
+:hasNonverbalCue a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :NonverbalCue ;
+    rdfs:label "has nonverbal cue" .
+
+:hasEmotionalValence a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :EmotionalValence ;
+    rdfs:label "has emotional valence" .
+
+:hasAgentValence a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range  :EmotionalValence ;
+    rdfs:label "has agent valence" .
+
+:hasEmotionalState a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range  oro:EmotionalState ;
+    rdfs:label "has emotional state (ORO)" .
+
+:hasSocialRole a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range  :SocialRole ;
+    rdfs:label "has social role" .
+
+:hasHierarchyStatus a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range  :SocialHierarchy ;
+    rdfs:label "has hierarchy status" .
+
+:hasRelationType a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :SocialRelationType ;
+    rdfs:label "has social relation type" .
+
+:hasEngagementLevel a owl:ObjectProperty ;
+    rdfs:domain :SocialSituation ;
+    rdfs:range  :EngagementLevel ;
+    rdfs:label "has engagement level" .
+
+#################################################################
+# Concrete environment entities (example locations)
+#################################################################
+
+:KitchenEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Informal ;
+    rdfs:label "Kitchen environment" .
+
+:LivingRoomEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Informal ;
+    rdfs:label "Living room environment" .
+
+:CoworkingSpaceEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Informal ;
+    rdfs:label "Coworking space environment" .
+
+:CafeteriaEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Informal ;
+    rdfs:label "Cafeteria environment" .
+
+:OfficeRoomEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Formal ;
+    rdfs:label "Office room environment" .
+
+:MeetingRoomEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Formal ;
+    rdfs:label "Meeting room environment" .
+
+:HospitalOfficeEnvironment a :Location ;
+    :hasPhysicalType :Indoor ;
+    :hasFormality :Formal ;
+    rdfs:label "Hospital office environment" .
+
+:StreetSidewalkEnvironment a :Location ;
+    :hasPhysicalType :Outdoor ;
+    :hasFormality :Formal ;
+    rdfs:label "Street sidewalk environment" .
+
+:PublicParkEnvironment a :Location ;
+    :hasPhysicalType :Outdoor ;
+    :hasFormality :Informal ;
+    rdfs:label "Public park environment" .
