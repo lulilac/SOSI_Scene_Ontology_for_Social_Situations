@@ -1,0 +1,467 @@
+@prefix : <http://www.phd-project.org/ontology/rsit#> .
+@prefix oro: <http://kb.openrobots.org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsit: <http://www.phd-project.org/ontology/rsit#> .
+@base <http://www.phd-project.org/ontology/rsit#> .
+
+<http://www.phd-project.org/ontology/rsit> rdf:type owl:Ontology ;
+                                            rdfs:label "R-SIT: Robotic Social Interaction Taxonomy" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.phd-project.org/ontology/rsit#hasCardinality
+rsit:hasCardinality rdf:type owl:ObjectProperty ;
+                    rdfs:domain rsit:SocialSituation ;
+                    rdfs:range rsit:Cardinality ;
+                    rdfs:label "has cardinality" .
+
+###  http://www.phd-project.org/ontology/rsit#hasSpeechActivity
+rsit:hasSpeechActivity rdf:type owl:ObjectProperty ;
+                       rdfs:domain rsit:SocialSituation ;
+                       rdfs:range rsit:SpeechActivity ;
+                       rdfs:label "has speech activity" .
+
+###  http://www.phd-project.org/ontology/rsit#hasNonverbalSignaling
+rsit:hasNonverbalSignaling rdf:type owl:ObjectProperty ;
+                           rdfs:domain rsit:SocialSituation ;
+                           rdfs:range rsit:NonverbalSignaling ;
+                           rdfs:label "has nonverbal signaling" .
+
+###  http://www.phd-project.org/ontology/rsit#hasCrowdContextBg
+rsit:hasCrowdContextBg rdf:type owl:ObjectProperty ;
+                       rdfs:domain rsit:SocialSituation ;
+                       rdfs:label "has crowd context bg" .
+
+###  http://www.phd-project.org/ontology/rsit#hasEmotionalValence
+rsit:hasEmotionalValence rdf:type owl:ObjectProperty ;
+                         rdfs:domain rsit:SocialSituation ;
+                         rdfs:range rsit:EmotionalValence ;
+                         rdfs:label "has emotional valence" .
+
+###  http://www.phd-project.org/ontology/rsit#hasEngagementLevel
+rsit:hasEngagementLevel rdf:type owl:ObjectProperty ;
+                        rdfs:domain rsit:SocialSituation ;
+                        rdfs:range rsit:EngagementLevel ;
+                        rdfs:label "has engagement level" .
+
+###  http://www.phd-project.org/ontology/rsit#hasFormality
+rsit:hasFormality rdf:type owl:ObjectProperty ;
+                  rdfs:domain rsit:Location ;
+                  rdfs:range rsit:Formality ;
+                  rdfs:label "has formality" .
+
+###  http://www.phd-project.org/ontology/rsit#hasInteractionType
+rsit:hasInteractionType rdf:type owl:ObjectProperty ;
+                        rdfs:domain rsit:SocialSituation ;
+                        rdfs:range rsit:InteractionType ;
+                        rdfs:label "has interaction type" .
+
+###  http://www.phd-project.org/ontology/rsit#hasInterdependenceLevel
+rsit:hasInterdependenceLevel rdf:type owl:ObjectProperty ;
+                             rdfs:domain rsit:SocialSituation ;
+                             rdfs:range rsit:InterdependenceLevel ;
+                             rdfs:label "has interdependence level" .
+
+###  http://www.phd-project.org/ontology/rsit#hasLocation
+rsit:hasLocation rdf:type owl:ObjectProperty ;
+                 rdfs:domain rsit:SocialSituation ;
+                 rdfs:range rsit:Location ;
+                 rdfs:label "has location" .
+
+###  http://www.phd-project.org/ontology/rsit#hasNonverbalCue
+rsit:hasNonverbalCue rdf:type owl:ObjectProperty ;
+                     rdfs:domain rsit:SocialSituation ;
+                     rdfs:range rsit:NonverbalCue ;
+                     rdfs:label "has nonverbal cue" .
+
+###  http://www.phd-project.org/ontology/rsit#hasPhysicalType
+rsit:hasPhysicalType rdf:type owl:ObjectProperty ;
+                     rdfs:domain rsit:Location ;
+                     rdfs:range rsit:PhysicalEnvironmentType ;
+                     rdfs:label "has physical type (indoor/outdoor)" .
+
+###  http://www.phd-project.org/ontology/rsit#hasRelationType
+rsit:hasRelationType rdf:type owl:ObjectProperty ;
+                     rdfs:domain rsit:SocialSituation ;
+                     rdfs:range rsit:SocialRelationType ;
+                     rdfs:label "has social relation type" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.phd-project.org/ontology/rsit#AdultChildRelation
+rsit:AdultChildRelation rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:SocialRelationType ;
+                        rdfs:label "adult_child" .
+
+###  http://www.phd-project.org/ontology/rsit#AffectiveDimension
+rsit:AffectiveDimension rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:RSITDimension ;
+                        rdfs:label "Affective dimension" .
+
+###  http://www.phd-project.org/ontology/rsit#BodyOrientation
+rsit:BodyOrientation rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:NonverbalCue ;
+                     rdfs:label "body_orientation" .
+
+###  http://www.phd-project.org/ontology/rsit#Cardinality
+rsit:Cardinality rdf:type owl:Class ;
+                 rdfs:subClassOf rsit:SituationDimension ;
+                 rdfs:label "Cardinality (group size)" .
+
+###  http://www.phd-project.org/ontology/rsit#SpeechActivity
+rsit:SpeechActivity rdf:type owl:Class ;
+                    rdfs:subClassOf rsit:SituationDimension ;
+                    rdfs:label "Speech activity" .
+
+###  http://www.phd-project.org/ontology/rsit#SpeechPresent
+rsit:SpeechPresent rdf:type owl:Class ;
+                   rdfs:subClassOf rsit:SpeechActivity ;
+                   rdfs:label "speech_present" .
+
+###  http://www.phd-project.org/ontology/rsit#SpeechAbsent
+rsit:SpeechAbsent rdf:type owl:Class ;
+                  rdfs:subClassOf rsit:SpeechActivity ;
+                  rdfs:label "speech_absent" .
+
+###  http://www.phd-project.org/ontology/rsit#NonverbalSignaling
+rsit:NonverbalSignaling rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:SituationDimension ;
+                        rdfs:label "Nonverbal signaling" .
+
+###  http://www.phd-project.org/ontology/rsit#NonverbalPresent
+rsit:NonverbalPresent rdf:type owl:Class ;
+                      rdfs:subClassOf rsit:NonverbalSignaling ;
+                      rdfs:label "nonverbal_present" .
+
+###  http://www.phd-project.org/ontology/rsit#NonverbalAbsent
+rsit:NonverbalAbsent rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:NonverbalSignaling ;
+                     rdfs:label "nonverbal_absent" .
+
+###  http://www.phd-project.org/ontology/rsit#CompetitiveInteraction
+rsit:CompetitiveInteraction rdf:type owl:Class ;
+                            rdfs:subClassOf rsit:GoalDirectedInteractionType ;
+                            rdfs:label "competitive" .
+
+###  http://www.phd-project.org/ontology/rsit#ConformingInteraction
+rsit:ConformingInteraction rdf:type owl:Class ;
+                           rdfs:subClassOf rsit:NormConformityInteractionType ;
+                           rdfs:label "conforming" .
+
+###  http://www.phd-project.org/ontology/rsit#CooperativeInteraction
+rsit:CooperativeInteraction rdf:type owl:Class ;
+                            rdfs:subClassOf rsit:GoalDirectedInteractionType ;
+                            rdfs:label "cooperative" .
+
+###  http://www.phd-project.org/ontology/rsit#Crowded
+rsit:Crowded rdf:type owl:Class ;
+             rdfs:subClassOf rsit:Social_background ;
+             rdfs:label "crowded" .
+
+###  http://www.phd-project.org/ontology/rsit#Dyad_1to1
+rsit:Dyad_1to1 rdf:type owl:Class ;
+               rdfs:subClassOf rsit:Cardinality ;
+               rdfs:label "dyad_1to1" .
+
+###  http://www.phd-project.org/ontology/rsit#EmotionalValence
+rsit:EmotionalValence rdf:type owl:Class ;
+                      rdfs:subClassOf rsit:AffectiveDimension ;
+                      rdfs:comment "emotional valence describes.... at the group level." ;
+                      rdfs:label "Emotional Valence" .
+
+###  http://www.phd-project.org/ontology/rsit#EngagementLevel
+rsit:EngagementLevel rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:SituationDimension ;
+                     rdfs:label "Engagement level" .
+
+###  http://www.phd-project.org/ontology/rsit#Environment
+rsit:Environment rdf:type owl:Class ;
+                 rdfs:label "Environment" .
+
+###  http://www.phd-project.org/ontology/rsit#EnvironmentDimension
+rsit:EnvironmentDimension rdf:type owl:Class ;
+                          rdfs:subClassOf rsit:RSITDimension ;
+                          rdfs:label "Environment dimension" .
+
+###  http://www.phd-project.org/ontology/rsit#EyeContact
+rsit:EyeContact rdf:type owl:Class ;
+                rdfs:subClassOf rsit:NonverbalCue ;
+                rdfs:label "eye_contact" .
+
+###  http://www.phd-project.org/ontology/rsit#Formal
+rsit:Formal rdf:type owl:Class ;
+            rdfs:subClassOf rsit:Formality .
+
+###  http://www.phd-project.org/ontology/rsit#Formality
+rsit:Formality rdf:type owl:Class ;
+               rdfs:subClassOf rsit:EnvironmentDimension ;
+               rdfs:label "Formality" .
+
+###  http://www.phd-project.org/ontology/rsit#GoalDirectedInteractionType
+rsit:GoalDirectedInteractionType rdf:type owl:Class ;
+                                 rdfs:subClassOf rsit:InteractionType ;
+                                 rdfs:label "Goal-directed interaction type" .
+
+###  http://www.phd-project.org/ontology/rsit#HighInterdependence
+rsit:HighInterdependence rdf:type owl:Class ;
+                         rdfs:subClassOf rsit:InterdependenceLevel ;
+                         rdfs:label "high_interdependence" .
+
+###  http://www.phd-project.org/ontology/rsit#Indoor
+rsit:Indoor rdf:type owl:Class ;
+            rdfs:subClassOf rsit:PhysicalEnvironmentType .
+
+###  http://www.phd-project.org/ontology/rsit#Informal
+rsit:Informal rdf:type owl:Class ;
+              rdfs:subClassOf rsit:Formality .
+
+###  http://www.phd-project.org/ontology/rsit#InteractionDimension
+rsit:InteractionDimension rdf:type owl:Class ;
+                          rdfs:subClassOf rsit:SituationDimension ;
+                          rdfs:label "Interaction dimension" .
+
+###  http://www.phd-project.org/ontology/rsit#InteractionType
+rsit:InteractionType rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:InteractionDimension ;
+                     rdfs:label "Interaction type" .
+
+###  http://www.phd-project.org/ontology/rsit#InterdependenceLevel
+rsit:InterdependenceLevel rdf:type owl:Class ;
+                          rdfs:subClassOf rsit:InteractionDimension ;
+                          rdfs:label "Interdependence level" .
+
+###  http://www.phd-project.org/ontology/rsit#Location
+rsit:Location rdf:type owl:Class ;
+              rdfs:subClassOf rsit:Environment ;
+              rdfs:label "Location" .
+
+###  http://www.phd-project.org/ontology/rsit#LowInterdependence
+rsit:LowInterdependence rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:InterdependenceLevel ;
+                        rdfs:label "low_interdependence" .
+
+###  http://www.phd-project.org/ontology/rsit#NegativeValence
+rsit:NegativeValence rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:EmotionalValence ;
+                     rdfs:label "negative" .
+
+###  http://www.phd-project.org/ontology/rsit#NeutralValence
+rsit:NeutralValence rdf:type owl:Class ;
+                    rdfs:subClassOf rsit:EmotionalValence ;
+                    rdfs:label "neutral" .
+
+###  http://www.phd-project.org/ontology/rsit#NonverbalCue
+rsit:NonverbalCue rdf:type owl:Class ;
+                  rdfs:subClassOf rsit:Social_signals ;
+                  rdfs:label "Nonverbal cue" .
+
+###  http://www.phd-project.org/ontology/rsit#NormConformityInteractionType
+rsit:NormConformityInteractionType rdf:type owl:Class ;
+                                   rdfs:subClassOf rsit:InteractionType ;
+                                   rdfs:label "Norm-conformity interaction type" .
+
+###  http://www.phd-project.org/ontology/rsit#NotCrowded
+rsit:NotCrowded rdf:type owl:Class ;
+                rdfs:subClassOf rsit:Social_background ;
+                rdfs:label "not_crowded" .
+
+###  http://www.phd-project.org/ontology/rsit#ObservationalInteraction
+rsit:ObservationalInteraction rdf:type owl:Class ;
+                              rdfs:subClassOf rsit:NormConformityInteractionType ;
+                              rdfs:label "observational" .
+
+###  http://www.phd-project.org/ontology/rsit#Outdoor
+rsit:Outdoor rdf:type owl:Class ;
+             rdfs:subClassOf rsit:PhysicalEnvironmentType .
+
+###  http://www.phd-project.org/ontology/rsit#PeerRelation
+rsit:PeerRelation rdf:type owl:Class ;
+                  rdfs:subClassOf rsit:SocialRelationType ;
+                  rdfs:label "peer_peer" .
+
+###  http://www.phd-project.org/ontology/rsit#PersuasiveInteraction
+rsit:PersuasiveInteraction rdf:type owl:Class ;
+                           rdfs:subClassOf rsit:GoalDirectedInteractionType ;
+                           rdfs:label "persuasive" .
+
+###  http://www.phd-project.org/ontology/rsit#PhysicalEnvironmentType
+rsit:PhysicalEnvironmentType rdf:type owl:Class ;
+                             rdfs:subClassOf rsit:EnvironmentDimension ;
+                             rdfs:label "Physical Environment Type" .
+
+###  http://www.phd-project.org/ontology/rsit#PositiveValence
+rsit:PositiveValence rdf:type owl:Class ;
+                     rdfs:subClassOf rsit:EmotionalValence ;
+                     rdfs:label "positive" .
+
+###  http://www.phd-project.org/ontology/rsit#ProximityClose
+rsit:ProximityClose rdf:type owl:Class ;
+                    rdfs:subClassOf rsit:NonverbalCue ;
+                    rdfs:label "proximity_close" .
+
+###  http://www.phd-project.org/ontology/rsit#ProximityFar
+rsit:ProximityFar rdf:type owl:Class ;
+                  rdfs:subClassOf rsit:NonverbalCue ;
+                  rdfs:label "proximity_far" .
+
+###  http://www.phd-project.org/ontology/rsit#RSITDimension
+rsit:RSITDimension rdf:type owl:Class ;
+                   rdfs:label "RSIT dimension" .
+
+###  http://www.phd-project.org/ontology/rsit#RSITEntity
+rsit:RSITEntity rdf:type owl:Class ;
+                rdfs:label "RSIT core entity" .
+
+###  http://www.phd-project.org/ontology/rsit#SituationDimension
+rsit:SituationDimension rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:RSITDimension ;
+                        rdfs:label "Situation dimension" .
+
+###  http://www.phd-project.org/ontology/rsit#SmallGroup_N
+rsit:SmallGroup_N rdf:type owl:Class ;
+                  rdfs:subClassOf rsit:Cardinality ;
+                  rdfs:label "small_group_n" .
+
+###  http://www.phd-project.org/ontology/rsit#SocialRelationType
+rsit:SocialRelationType rdf:type owl:Class ;
+                        rdfs:subClassOf rsit:SituationDimension ;
+                        rdfs:label "Social relation type" .
+
+###  http://www.phd-project.org/ontology/rsit#SocialSituation
+rsit:SocialSituation rdf:type owl:Class ;
+                     rdfs:label "Social Situation" .
+
+###  http://www.phd-project.org/ontology/rsit#Social_background
+rsit:Social_background rdf:type owl:Class .
+
+###  http://www.phd-project.org/ontology/rsit#Social_signals
+rsit:Social_signals rdf:type owl:Class .
+
+###  http://www.phd-project.org/ontology/rsit#Solo
+rsit:Solo rdf:type owl:Class ;
+          rdfs:subClassOf rsit:Cardinality ;
+          rdfs:label "solo" .
+
+###  http://www.phd-project.org/ontology/rsit#StrangerRelation
+rsit:StrangerRelation rdf:type owl:Class ;
+                      rdfs:subClassOf rsit:SocialRelationType ;
+                      rdfs:label "stranger_stranger" .
+
+###  http://www.phd-project.org/ontology/rsit#Triad_1to2
+rsit:Triad_1to2 rdf:type owl:Class ;
+                rdfs:subClassOf rsit:Cardinality ;
+                rdfs:label "triad_1to2" .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://kb.openrobots.org#disengaging
+oro:disengaging rdf:type owl:NamedIndividual ,
+                         rsit:EngagementLevel ;
+                rdfs:comment "To what extent do participants’ goals/actions depend on each other to make progress?" .
+
+###  http://kb.openrobots.org#engaged
+oro:engaged rdf:type owl:NamedIndividual ,
+                     rsit:EngagementLevel .
+
+###  http://kb.openrobots.org#engaging
+oro:engaging rdf:type owl:NamedIndividual ,
+                      rsit:EngagementLevel .
+
+###  http://www.phd-project.org/ontology/rsit#CafeteriaEnvironment
+rsit:CafeteriaEnvironment rdf:type owl:NamedIndividual ,
+                                   rsit:Location ;
+                          rsit:hasFormality rsit:Informal ;
+                          rsit:hasPhysicalType rsit:Indoor ;
+                          rdfs:label "Cafeteria environment" .
+
+###  http://www.phd-project.org/ontology/rsit#CoworkingSpaceEnvironment
+rsit:CoworkingSpaceEnvironment rdf:type owl:NamedIndividual ,
+                                        rsit:Location ;
+                               rsit:hasFormality rsit:Informal ;
+                               rsit:hasPhysicalType rsit:Indoor ;
+                               rdfs:label "Coworking space environment" .
+
+###  http://www.phd-project.org/ontology/rsit#Formal
+rsit:Formal rdf:type owl:NamedIndividual .
+
+###  http://www.phd-project.org/ontology/rsit#HospitalOfficeEnvironment
+rsit:HospitalOfficeEnvironment rdf:type owl:NamedIndividual ,
+                                        rsit:Location ;
+                               rsit:hasFormality rsit:Formal ;
+                               rsit:hasPhysicalType rsit:Indoor ;
+                               rdfs:label "Hospital office environment" .
+
+###  http://www.phd-project.org/ontology/rsit#Indoor
+rsit:Indoor rdf:type owl:NamedIndividual .
+
+###  http://www.phd-project.org/ontology/rsit#Informal
+rsit:Informal rdf:type owl:NamedIndividual .
+
+###  http://www.phd-project.org/ontology/rsit#KitchenEnvironment
+rsit:KitchenEnvironment rdf:type owl:NamedIndividual ,
+                                 rsit:Location ;
+                        rsit:hasFormality rsit:Informal ;
+                        rsit:hasPhysicalType rsit:Indoor ;
+                        rdfs:label "Kitchen environment" .
+
+###  http://www.phd-project.org/ontology/rsit#LivingRoomEnvironment
+rsit:LivingRoomEnvironment rdf:type owl:NamedIndividual ,
+                                    rsit:Location ;
+                           rsit:hasFormality rsit:Informal ;
+                           rsit:hasPhysicalType rsit:Indoor ;
+                           rdfs:label "Living room environment" .
+
+###  http://www.phd-project.org/ontology/rsit#MeetingRoomEnvironment
+rsit:MeetingRoomEnvironment rdf:type owl:NamedIndividual ,
+                                     rsit:Location ;
+                            rsit:hasFormality rsit:Formal ;
+                            rsit:hasPhysicalType rsit:Indoor ;
+                            rdfs:label "Meeting room environment" .
+
+###  http://www.phd-project.org/ontology/rsit#OfficeRoomEnvironment
+rsit:OfficeRoomEnvironment rdf:type owl:NamedIndividual ,
+                                    rsit:Location ;
+                           rsit:hasFormality rsit:Formal ;
+                           rsit:hasPhysicalType rsit:Indoor ;
+                           rdfs:label "Office room environment" .
+
+###  http://www.phd-project.org/ontology/rsit#Outdoor
+rsit:Outdoor rdf:type owl:NamedIndividual .
+
+###  http://www.phd-project.org/ontology/rsit#PublicParkEnvironment
+rsit:PublicParkEnvironment rdf:type owl:NamedIndividual ,
+                                    rsit:Location ;
+                           rsit:hasFormality rsit:Informal ;
+                           rsit:hasPhysicalType rsit:Outdoor ;
+                           rdfs:label "Public park environment" .
+
+###  http://www.phd-project.org/ontology/rsit#StreetSidewalkEnvironment
+rsit:StreetSidewalkEnvironment rdf:type owl:NamedIndividual ,
+                                        rsit:Location ;
+                               rsit:hasFormality rsit:Formal ;
+                               rsit:hasPhysicalType rsit:Outdoor ;
+                               rdfs:label "Street sidewalk environment" .
+
+#################################################################
+#    Annotations
+#################################################################
+
+rsit:Formal rdfs:label "Formal" .
+
+rsit:Indoor rdfs:label "Indoor" .
+
+rsit:Informal rdfs:label "Informal" .
+
+rsit:Outdoor rdfs:label "Outdoor" .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
